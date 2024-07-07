@@ -123,7 +123,6 @@ public class Main {
         String subject = scanner.nextLine();
         System.out.println("Введите ID учителя:");
         int id = scanner.nextInt();
-
         scanner.nextLine(); // Очистка буфера после считывания числа
         teacherController.createTeacher(id, lastName, firstName, middleName, subject);
     }
@@ -134,7 +133,8 @@ public class Main {
         scanner.nextLine(); // Очистка буфера после считывания числа
 
         Teacher teacher = teacherController.getById(teacherId);
-        if (teacher == null) {
+        if (
+        teacher == null) {
             System.out.println("Учитель с указанным ID не найден.");
             return;
         }

@@ -1,9 +1,9 @@
 package Lesson4.view;
 
-import Lesson4.model.Group;
 import Lesson4.model.Stream;
-import Lesson4.model.Student;
+import Lesson4.model.Group;
 import Lesson4.model.Teacher;
+import Lesson4.model.Student;
 
 import java.util.List;
 
