@@ -4,28 +4,19 @@ import Lesson4.model.Student;
 import Lesson4.service.StudentService;
 import Lesson4.view.StudentView;
 
-import java.util.List;
-
-public class StudentController {
-    private StudentService studentService;
-    private StudentView studentView;
-
-    public StudentController(StudentService studentService, StudentView studentView) {
-        this.studentService = studentService;
-        this.studentView = studentView;
+public class StudentController extends BaseController<Student> {
+    public StudentController(StudentService service, StudentView view) {
+        super(service, view);
     }
 
-    public Student createStudent(String lastName, String firstName, String middleName, int id, String subject) {
-        Student student = new Student(lastName, firstName, middleName, id, subject);
-        studentService.addStudent(student);
+    public Student createStudent(int id, String lastName, String firstName, String middleName, String subject) {
+        Student student = new Student(id, lastName, firstName, middleName, subject);
+        create(student);
         return student;
     }
 
-    public void displayStudents() {
-        studentView.displayAllStudents(getAllStudents());
-    }
-
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+    public void updateStudent(Student student, String newLastName, String newFirstName, String newMiddleName, String newSubject) {
+        student = new Student(student.getId(), newLastName, newFirstName, newMiddleName, newSubject);
+        update(student);
     }
 }

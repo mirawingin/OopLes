@@ -1,10 +1,10 @@
 package Lesson4.model;
 
-public class Teacher extends User {
+public class Teacher extends BaseModel {
     private String subject;
 
-    public Teacher(String lastName, String firstName, String middleName, String subject) {
-        super(lastName, firstName, middleName);
+    public Teacher(int id, String lastName, String firstName, String middleName, String subject) {
+        super(id, lastName, firstName, middleName);
         this.subject = subject;
     }
 
@@ -12,12 +12,8 @@ public class Teacher extends User {
         return subject;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
     @Override
     public String toString() {
-        return getLastName() + " " + getFirstName() + " " + getMiddleName() + ", Предмет: " + subject;
+        return super.toString() + ", Предмет: " + subject;
     }
 }

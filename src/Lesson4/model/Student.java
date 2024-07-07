@@ -1,22 +1,19 @@
 package Lesson4.model;
 
-public class Student {
-    private String lastName;
-    private String firstName;
-    private String middleName;
-    private int id;
+public class Student extends BaseModel {
     private String subject;
 
-    public Student(String lastName, String firstName, String middleName, int id, String subject) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.id = id;
+    public Student(int id, String lastName, String firstName, String middleName, String subject) {
+        super(id, lastName, firstName, middleName);
         this.subject = subject;
+    }
+
+    public String getSubject() {
+        return subject;
     }
 
     @Override
     public String toString() {
-        return lastName + " " + firstName + " " + middleName + " (ID: " + id + "), Предмет: " + subject;
+        return super.toString() + ", Предмет: " + subject;
     }
 }

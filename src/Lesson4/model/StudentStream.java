@@ -5,25 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentStream {
-    private int streamNumber;
-    private String streamName;
-    private List<StudentGroup> groups = new ArrayList<>();
+    private String name;
+    private List<StudentGroup> groups;
 
-    public StudentStream(int streamNumber, String streamName) {
-        this.streamNumber = streamNumber;
-        this.streamName = streamName;
-    }
-
-    public int getStreamNumber() {
-        return streamNumber;
-    }
-
-    public String getStreamName() {
-        return streamName;
+    public StudentStream(String name) {
+        this.name = name;
+        this.groups = new ArrayList<>();
     }
 
     public void addGroup(StudentGroup group) {
         groups.add(group);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<StudentGroup> getGroups() {
@@ -33,9 +28,8 @@ public class StudentStream {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Поток ").append(streamNumber).append(": ").append(streamName).append("\n");
         for (StudentGroup group : groups) {
-            sb.append("  ").append(group).append("\n");
+            sb.append(group.getName()).append(": ").append(group.toString()).append("\n");
         }
         return sb.toString();
     }

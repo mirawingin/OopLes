@@ -1,11 +1,8 @@
 package Lesson4.controller;
 
-import Lesson4.model.StudentGroup;
-import Lesson4.model.StudentStream;
+import Lesson4.model.Stream;
 import Lesson4.service.StreamService;
 import Lesson4.view.StreamView;
-
-import java.util.List;
 
 public class StreamController {
     private StreamService streamService;
@@ -16,19 +13,11 @@ public class StreamController {
         this.streamView = streamView;
     }
 
-    public StudentStream createStream(String streamName) {
-        return streamService.createStream(streamName);
+    public void createStream(Stream stream) {
+        streamService.createStream(stream);
     }
 
-    public void addGroupToStream(StudentStream stream, StudentGroup group) {
-        streamService.addGroupToStream(stream, group);
-    }
-
-    public void displayStreams() {
-        streamView.displayAllStreams(getAllStreams());
-    }
-
-    public List<StudentStream> getAllStreams() {
-        return streamService.getAllStreams();
+    public void displayAllStreams() {
+        streamView.displayAllStreams(streamService.getAllStreams());
     }
 }
